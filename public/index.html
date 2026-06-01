@@ -6,9 +6,9 @@
     <meta name="color-scheme" content="light dark">
     <meta
       name="description"
-      content="A small browser-only web application template ready for static hosting."
+      content="WhoPaysWhat helps friends track shared bills, settle up, and keep group expenses clear."
     >
-    <title>Cordia App Template</title>
+    <title>WhoPaysWhat</title>
     <link rel="author" href="/humans.txt" type="text/plain">
     <link rel="alternate" href="/llm.txt" type="text/plain" title="LLM-readable site information">
     <link rel="stylesheet" href="/global.css">
@@ -21,12 +21,12 @@
     <div class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Browser app template</p>
-          <h1>Cordia</h1>
+          <p class="eyebrow">Shared bill tracker</p>
+          <h1>WhoPaysWhat</h1>
         </div>
         <nav class="nav" aria-label="Primary">
           <a href="#overview" aria-current="page">Overview</a>
-          <a href="#workspace">Workspace</a>
+          <a href="#workspace">Bills</a>
           <a href="#settings">Settings</a>
         </nav>
       </header>
@@ -34,25 +34,25 @@
       <main id="main">
         <section class="hero" id="overview" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow">Static hosting ready starter</p>
-            <h2 id="hero-title">A clean starting point for browser-only apps.</h2>
+            <p class="eyebrow">Split costs without group chat math</p>
+            <h2 id="hero-title">Track who paid, who owes, and what is settled.</h2>
             <p>
-              Customize the data model, views, and actions without introducing a
-              build pipeline. State is local by default, markup stays plain, and
-              assets live in one deployable folder.
+              Add rent, dinners, rides, or weekend costs in one shared-looking
+              workspace. Keep every bill visible while you shape the full split
+              logic behind it.
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#workspace">Open workspace</a>
-              <a class="button secondary" href="#settings">Edit settings</a>
+              <a class="button primary" href="#workspace">Add expense</a>
+              <a class="button secondary" href="#settings">Tune app</a>
             </div>
           </div>
           <div class="status-panel" aria-label="Application status">
             <div>
               <span class="status-dot" aria-hidden="true"></span>
-              <span>Ready for customization</span>
+              <span>Local ledger ready</span>
             </div>
             <strong id="item-count">0</strong>
-            <span>saved items</span>
+            <span>tracked bills</span>
           </div>
         </section>
 
@@ -60,14 +60,14 @@
           <div class="panel workspace-panel">
             <div class="section-heading">
               <div>
-                <p class="eyebrow">Workspace</p>
-                <h2 id="workspace-title">Starter list</h2>
+                <p class="eyebrow">Bills</p>
+                <h2 id="workspace-title">Group expense list</h2>
               </div>
-              <button class="button secondary" id="clear-items" type="button">Clear done</button>
+              <button class="button secondary" id="clear-items" type="button">Clear settled</button>
             </div>
 
             <form class="item-form" id="item-form">
-              <label for="item-input">New item</label>
+              <label for="item-input">New shared cost</label>
               <div class="input-row">
                 <input
                   id="item-input"
@@ -75,7 +75,7 @@
                   type="text"
                   autocomplete="off"
                   maxlength="80"
-                  placeholder="Add a task, note, or placeholder record"
+                  placeholder="Pizza $48 paid by Maya"
                   required
                 >
                 <button class="button primary" type="submit">Add</button>
@@ -87,23 +87,23 @@
 
           <aside class="panel" aria-labelledby="snapshot-title">
             <p class="eyebrow">Snapshot</p>
-            <h2 id="snapshot-title">Template pieces</h2>
+            <h2 id="snapshot-title">Split-ready basics</h2>
             <dl class="stat-list">
               <div>
-                <dt>Runtime</dt>
-                <dd>Browser only</dd>
+                <dt>Use case</dt>
+                <dd>Roommates and trips</dd>
               </div>
               <div>
-                <dt>Deploy folder</dt>
-                <dd><code>public</code></dd>
+                <dt>Default view</dt>
+                <dd>Shared expense list</dd>
               </div>
               <div>
-                <dt>Styles</dt>
-                <dd><code>global.css</code></dd>
+                <dt>State</dt>
+                <dd>Saved on this device</dd>
               </div>
               <div>
-                <dt>Script</dt>
-                <dd><code>app.js</code></dd>
+                <dt>Next feature</dt>
+                <dd>Per-person balances</dd>
               </div>
             </dl>
           </aside>
@@ -113,7 +113,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Settings</p>
-              <h2 id="settings-title">App preferences</h2>
+              <h2 id="settings-title">Ledger preferences</h2>
             </div>
             <span class="save-state" id="save-state" role="status">Saved locally</span>
           </div>
@@ -121,7 +121,7 @@
           <div class="settings-grid">
             <label class="field">
               <span>App name</span>
-              <input id="app-name" type="text" maxlength="32" value="Cordia">
+              <input id="app-name" type="text" maxlength="32" value="WhoPaysWhat">
             </label>
 
             <label class="field">

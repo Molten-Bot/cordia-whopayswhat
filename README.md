@@ -1,6 +1,6 @@
-# Cordia Web Blank
+# WhoPaysWhat
 
-Static browser-only web app template for fast downstream customization.
+Static browser-only starter for splitting bills with friends. Current UI ships with a local expense list, settled-item clearing, app naming, and theme preferences.
 
 ## Structure
 
@@ -8,7 +8,7 @@ Static browser-only web app template for fast downstream customization.
 - `public/global.css` - global styling
 - `src/app.ts` - typed browser-only application source
 - `public/app.js` - compiled browser application logic
-- `public/_redirects` - Cloudflare Pages SPA fallback
+- `public/_redirects` - static hosting SPA fallback
 - `public/_headers` - basic static security headers
 
 ## Run locally
@@ -23,11 +23,11 @@ python3 -m http.server 4173 --directory public
 
 Then open `http://localhost:4173`.
 
-## Deploy on Cloudflare Pages
+## Deploy
 
 Use these project settings:
 
 - Build command: `npm run build`
 - Build output directory: `public`
 
-This template does not require bundling or server functions.
+WhoPaysWhat does not require bundling or server functions.
