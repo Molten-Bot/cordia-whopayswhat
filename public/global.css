@@ -108,7 +108,8 @@ a {
 .section-grid,
 .settings-grid,
 .input-row,
-.item-row,
+.expense-row,
+.participant-row,
 .hero-actions {
   display: flex;
 }
@@ -315,16 +316,22 @@ main {
   font-size: clamp(1.35rem, 3vw, 2rem);
 }
 
-.item-form {
+.expense-form {
   display: grid;
-  gap: 0.45rem;
+  gap: 1rem;
 }
 
-.item-form label,
+.expense-form label,
 .field span {
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 800;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(8rem, 0.45fr) minmax(10rem, 0.55fr);
+  gap: 0.75rem;
 }
 
 .input-row {
@@ -349,7 +356,56 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-.item-list {
+.split-fieldset {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.split-fieldset legend {
+  padding: 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.5rem;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.45rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+}
+
+.choice input {
+  width: 1rem;
+  min-height: 1rem;
+  accent-color: var(--primary);
+}
+
+.choice span {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.split-all {
+  width: fit-content;
+}
+
+.expense-list,
+.participant-list {
   display: grid;
   gap: 0.6rem;
   margin: 1rem 0 0;
@@ -365,7 +421,8 @@ a:focus-visible {
   color: var(--muted);
 }
 
-.item-row {
+.expense-row,
+.participant-row {
   align-items: center;
   gap: 0.75rem;
   min-height: 3.25rem;
@@ -375,29 +432,54 @@ a:focus-visible {
   background: var(--surface-strong);
 }
 
-.item-row input {
+.expense-row > input {
   width: 1.15rem;
   min-height: 1.15rem;
   accent-color: var(--primary);
 }
 
-.item-row span {
+.expense-details,
+.participant-row span {
   flex: 1;
   overflow-wrap: anywhere;
 }
 
-.item-row[data-done="true"] span {
+.expense-details {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.expense-details span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.expense-row[data-settled="true"] .expense-details {
   color: var(--muted);
   text-decoration: line-through;
 }
 
-.item-row .icon-button {
+.icon-button {
   width: 2.25rem;
   height: 2.25rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: transparent;
   cursor: pointer;
+}
+
+.icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.participant-form {
+  margin-top: 1rem;
+}
+
+.participant-list {
+  margin-top: 0.75rem;
 }
 
 .stat-list {
@@ -473,6 +555,10 @@ code {
   .settings-grid,
   .input-row {
     flex-direction: column;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 
   .topbar {

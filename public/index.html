@@ -35,11 +35,11 @@
         <section class="hero" id="overview" aria-labelledby="hero-title">
           <div class="hero-copy">
             <p class="eyebrow">Split costs without group chat math</p>
-            <h2 id="hero-title">Track who paid, who owes, and what is settled.</h2>
+            <h2 id="hero-title">Choose who paid and who shares each bill.</h2>
             <p>
-              Add rent, dinners, rides, or weekend costs in one shared-looking
-              workspace. Keep every bill visible while you shape the full split
-              logic behind it.
+              Add rent, dinners, rides, or weekend costs with the payer and
+              split group selected up front. Every expense can be for everyone
+              or only the people who joined that cost.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#workspace">Add expense</a>
@@ -51,7 +51,7 @@
               <span class="status-dot" aria-hidden="true"></span>
               <span>Local ledger ready</span>
             </div>
-            <strong id="item-count">0</strong>
+            <strong id="expense-count">0</strong>
             <span>tracked bills</span>
           </div>
         </section>
@@ -61,49 +61,89 @@
             <div class="section-heading">
               <div>
                 <p class="eyebrow">Bills</p>
-                <h2 id="workspace-title">Group expense list</h2>
+                <h2 id="workspace-title">Expense split builder</h2>
               </div>
-              <button class="button secondary" id="clear-items" type="button">Clear settled</button>
+              <button class="button secondary" id="clear-expenses" type="button">Clear settled</button>
             </div>
 
-            <form class="item-form" id="item-form">
-              <label for="item-input">New shared cost</label>
-              <div class="input-row">
-                <input
-                  id="item-input"
-                  name="item"
-                  type="text"
-                  autocomplete="off"
-                  maxlength="80"
-                  placeholder="Pizza $48 paid by Maya"
-                  required
-                >
-                <button class="button primary" type="submit">Add</button>
+            <form class="expense-form" id="expense-form">
+              <div class="form-grid">
+                <label class="field">
+                  <span>Expense</span>
+                  <input
+                    id="expense-description"
+                    name="description"
+                    type="text"
+                    autocomplete="off"
+                    maxlength="80"
+                    placeholder="Pizza"
+                    required
+                  >
+                </label>
+
+                <label class="field amount-field">
+                  <span>Amount</span>
+                  <input
+                    id="expense-amount"
+                    name="amount"
+                    type="number"
+                    inputmode="decimal"
+                    min="0.01"
+                    step="0.01"
+                    placeholder="48.00"
+                    required
+                  >
+                </label>
+
+                <label class="field payer-field">
+                  <span>Paid by</span>
+                  <select id="payer-select" name="payer"></select>
+                </label>
               </div>
+
+              <fieldset class="split-fieldset">
+                <legend>Split with</legend>
+                <label class="choice split-all">
+                  <input id="split-all" type="checkbox" checked>
+                  <span>All people</span>
+                </label>
+                <div class="choice-grid" id="participant-options"></div>
+              </fieldset>
+
+              <button class="button primary" type="submit">Add expense</button>
             </form>
 
-            <ul class="item-list" id="item-list" aria-live="polite"></ul>
+            <ul class="expense-list" id="expense-list" aria-live="polite"></ul>
           </div>
 
           <aside class="panel" aria-labelledby="snapshot-title">
-            <p class="eyebrow">Snapshot</p>
-            <h2 id="snapshot-title">Split-ready basics</h2>
+            <p class="eyebrow">People</p>
+            <h2 id="snapshot-title">Split group</h2>
+            <form class="participant-form" id="participant-form">
+              <label class="field">
+                <span>Add person</span>
+                <div class="input-row">
+                  <input
+                    id="participant-name"
+                    name="participant"
+                    type="text"
+                    autocomplete="off"
+                    maxlength="40"
+                    placeholder="Alex"
+                  >
+                  <button class="button secondary" type="submit">Add</button>
+                </div>
+              </label>
+            </form>
+            <ul class="participant-list" id="participant-list"></ul>
             <dl class="stat-list">
               <div>
-                <dt>Use case</dt>
-                <dd>Roommates and trips</dd>
+                <dt>Group size</dt>
+                <dd id="participant-summary">0 people</dd>
               </div>
               <div>
                 <dt>Default view</dt>
-                <dd>Shared expense list</dd>
-              </div>
-              <div>
-                <dt>State</dt>
-                <dd>Saved on this device</dd>
-              </div>
-              <div>
-                <dt>Next feature</dt>
-                <dd>Per-person balances</dd>
+                <dd>Everyone selected</dd>
               </div>
             </dl>
           </aside>
