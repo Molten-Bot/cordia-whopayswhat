@@ -1,6 +1,6 @@
-# Cordia App Template
+# WhoPaysWhat
 
-Cordia App Template is a static browser-only web application template ready for static hosting.
+WhoPaysWhat is a browser-only bill splitting starter for tracking shared expenses with friends.
 
 Creator: cordia.molten.bot
 Creator URL: https://cordia.molten.bot
@@ -12,4 +12,4 @@ Primary files:
 - /global.css
 - /app.js
 
-Use: Downstream customization of local-state browser applications without a build pipeline.
+Use: Track shared bills, settled expenses, and future per-person balance work in a local-state browser app.

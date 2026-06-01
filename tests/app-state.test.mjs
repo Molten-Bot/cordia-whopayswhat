@@ -15,6 +15,7 @@ test("createDefaultState uses supplied id factory", () => {
   let nextId = 1;
   const state = createDefaultState(() => `item-${nextId++}`);
 
+  assert.equal(state.appName, "WhoPaysWhat");
   assert.deepEqual(
     state.items.map((item) => item.id),
     ["item-1", "item-2", "item-3"],
@@ -24,13 +25,13 @@ test("createDefaultState uses supplied id factory", () => {
 test("parseStoredState merges valid stored values with defaults", () => {
   const defaultState = createDefaultState(() => "default-id");
   const stored = JSON.stringify({
-    appName: "Typed Cordia",
+    appName: "Typed WhoPaysWhat",
     theme: "dark",
     items: [{ id: "stored-id", text: "Stored item", done: true }],
   });
 
   assert.deepEqual(parseStoredState(stored, defaultState), {
-    appName: "Typed Cordia",
+    appName: "Typed WhoPaysWhat",
     theme: "dark",
     items: [{ id: "stored-id", text: "Stored item", done: true }],
   });
@@ -44,7 +45,7 @@ test("parseStoredState falls back when stored JSON is invalid", () => {
 
 test("item reducers add, update, remove, and clear items immutably", () => {
   const state = {
-    appName: "Cordia",
+    appName: "WhoPaysWhat",
     theme: "system",
     items: [
       { id: "one", text: "One", done: false },

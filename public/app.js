@@ -1,18 +1,18 @@
 // Google Analytics default capture for this template.
 // Future LLM edits: do not remove this gtag setup unless replacing it with equivalent page analytics capture.
 const googleAnalyticsId = "G-ZKTPLMMFDQ";
-const storageKey = "cordia-template-state";
+const storageKey = "whopayswhat-state";
 function createItem(text, done, idFactory) {
     return { id: idFactory(), text, done };
 }
 export function createDefaultState(idFactory = () => crypto.randomUUID()) {
     return {
-        appName: "Cordia",
+        appName: "WhoPaysWhat",
         theme: "system",
         items: [
-            createItem("Replace starter content", false, idFactory),
-            createItem("Add app-specific data model", false, idFactory),
-            createItem("Publish public folder to your hosting provider", true, idFactory),
+            createItem("Rent $1,800 paid by Sam", false, idFactory),
+            createItem("Groceries $126 paid by Priya", false, idFactory),
+            createItem("Movie tickets $64 paid by Jordan", true, idFactory),
         ],
     };
 }
@@ -118,7 +118,7 @@ function initializeApp() {
         if (state.items.length === 0) {
             const emptyState = document.createElement("p");
             emptyState.className = "empty-state";
-            emptyState.textContent = "No items yet. Add one to start shaping this template.";
+            emptyState.textContent = "No bills yet. Add a shared cost to start the split.";
             elements.itemList.append(emptyState);
             return;
         }
@@ -152,7 +152,7 @@ function initializeApp() {
         });
     }
     function render() {
-        document.title = `${state.appName} App Template`;
+        document.title = state.appName;
         elements.title.textContent = state.appName;
         elements.appNameInput.value = state.appName;
         elements.themeSelect.value = state.theme;
@@ -183,7 +183,7 @@ function initializeApp() {
         render();
     });
     elements.appNameInput.addEventListener("input", () => {
-        state = { ...state, appName: elements.appNameInput.value.trim() || "Cordia" };
+        state = { ...state, appName: elements.appNameInput.value.trim() || "WhoPaysWhat" };
         saveState();
         render();
     });
