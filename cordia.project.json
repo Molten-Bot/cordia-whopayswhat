@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "generatedBy": "cordia",
+  "updatedAt": "2026-06-01T19:32:36.199Z",
+  "project": {
+    "id": "whopayswhat",
+    "handle": "whopayswhat",
+    "title": "WhoPaysWhat",
+    "summary": "I want an app so i can split our bills with friends",
+    "url": "https://cordia.molten.bot/project/whopayswhat"
+  },
+  "repo": {
+    "owner": "Molten-Bot",
+    "name": "cordia-whopayswhat",
+    "fullName": "Molten-Bot/cordia-whopayswhat"
+  }
+}
